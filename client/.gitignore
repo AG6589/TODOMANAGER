@@ -1,0 +1,18 @@
+# Node
+node_modules
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+
+# Env
+.env
+.env.*
+
+# Build outputs
+dist
+.vite
+coverage
+
+# OS
+.DS_Store
+Thumbs.db
