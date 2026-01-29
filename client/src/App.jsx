@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-const API = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API = "/api/tasks";
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState("");
 
   useEffect(() => {
-    fetch(API + "/tasks")
+    fetch(API)
       .then((res) => res.json())
       .then((data) => {
 
@@ -24,7 +24,7 @@ export default function App() {
     e.preventDefault();
     if (!title.trim()) return;
 
-    const res = await fetch(API + "/tasks", {
+    const res = await fetch(API, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title }),
@@ -37,7 +37,7 @@ export default function App() {
 
 
   const completeTask = async (id) => {
-    const res = await fetch(`${API}/tasks/${id}/complete`, {
+    const res = await fetch(`${API}/${id}/complete`, {
       method: "POST",
     });
 
@@ -82,8 +82,8 @@ export default function App() {
             <li
               key={task.id}
               className={`p-4 rounded-xl shadow-sm border flex items-center justify-between transition ${task.completed
-                  ? "bg-green-100 text-gray-600 line-through opacity-70"
-                  : "bg-gray-50 hover:bg-gray-100"
+                ? "bg-green-100 text-gray-600 line-through opacity-70"
+                : "bg-gray-50 hover:bg-gray-100"
                 }`}
             >
               <span className="text-lg">{task.title}</span>
