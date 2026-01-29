@@ -70,3 +70,7 @@ The frontend is ready to be deployed to Netlify.
 
 The backend needs to be hosted on a service like Render, Railway, or Heroku.
 Once deployed, grab the URL and use it to configure the Frontend.
+
+
+<img width="1915" height="965" alt="image" src="https://github.com/user-attachments/assets/13d7e22f-da38-435e-a0e2-4cb0bf5e81e9" />
+
