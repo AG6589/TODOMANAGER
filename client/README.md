@@ -18,3 +18,17 @@ A clean, minimal Task/Todo Manager built for a fresher take-home.
 ---
 
 ## 📂 Project Structure
+
+TodoManager/
+├─ server/
+│  ├─ src/ (index.js, routes.js, store.js)
+│  └─ package.json   // includes: "type":"module", dev/start scripts
+├─ client/
+│  ├─ src/ (App.jsx, main.jsx, input.css, output.css, etc.)
+│  └─ package.json
+├─ docs/
+│  ├─ ui-home.png
+│  ├─ ui-add.png
+│  └─ ui-complete.png
+├─ README.md
+└─ .gitignore

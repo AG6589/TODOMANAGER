@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API = "http://localhost:3000";
+const API = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 export default function App() {
   const [tasks, setTasks] = useState([]);
@@ -10,7 +10,7 @@ export default function App() {
     fetch(API + "/tasks")
       .then((res) => res.json())
       .then((data) => {
-        
+
         const sorted = [
           ...data.filter((t) => !t.completed),
           ...data.filter((t) => t.completed),
@@ -19,7 +19,7 @@ export default function App() {
       });
   }, []);
 
-  
+
   const addTask = async (e) => {
     e.preventDefault();
     if (!title.trim()) return;
@@ -35,7 +35,7 @@ export default function App() {
     setTitle("");
   };
 
-  
+
   const completeTask = async (id) => {
     const res = await fetch(`${API}/tasks/${id}/complete`, {
       method: "POST",
@@ -43,7 +43,7 @@ export default function App() {
 
     const updated = await res.json();
 
-    
+
     setTasks((prev) => {
       const newList = prev.map((t) => (t.id === id ? updated : t));
       return [
@@ -60,7 +60,7 @@ export default function App() {
           Todo Manager
         </h1>
 
-        {}
+        { }
         <form onSubmit={addTask} className="flex gap-3 mb-6">
           <input
             value={title}
@@ -76,16 +76,15 @@ export default function App() {
           </button>
         </form>
 
-        {}
+        { }
         <ul className="space-y-3">
           {tasks.map((task) => (
             <li
               key={task.id}
-              className={`p-4 rounded-xl shadow-sm border flex items-center justify-between transition ${
-                task.completed
+              className={`p-4 rounded-xl shadow-sm border flex items-center justify-between transition ${task.completed
                   ? "bg-green-100 text-gray-600 line-through opacity-70"
                   : "bg-gray-50 hover:bg-gray-100"
-              }`}
+                }`}
             >
               <span className="text-lg">{task.title}</span>
 
