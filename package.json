@@ -1,5 +1,6 @@
 {
   "name": "todomanager",
+  "type": "module",
   "version": "1.0.0",
   "description": "A simple, responsive Todo Management application built with the MERN stack (MongoDB-less, in-memory store for simplicity) and Tailwind CSS.",
   "main": "index.js",
